@@ -2,18 +2,27 @@ import React from "react"
 import { Link } from 'react-router-dom'
 import { useState } from "react"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Landing = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const history = useNavigate();
 
     const postRequest = () => {
-        axios.post('/log-in', {email, password})
+        axios.post('/log-in', { email, password })
             .then((data) => {
-                console.log(data);
+                console.log(data.data);
+                if (data.data === '/home') {
+                    history(data.data)
+                }
+                else {
+                    alert(data.data.message)
+                }
             })
             .catch((err) => {
                 console.log("error: ", err)
-                alert(err.response.data.error)
+                alert('log in error')
             })
     }
     const submit = (e) => {
