@@ -9,7 +9,7 @@
     "dev": "nodemon server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Avneet Sidhu, Thanish Premarajan",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
