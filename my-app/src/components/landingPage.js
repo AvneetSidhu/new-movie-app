@@ -30,7 +30,7 @@ const Landing = () => {
         console.log('submitted')
         postRequest();
     }
-    console.log(email, password)
+
 
     return (
         <div>
