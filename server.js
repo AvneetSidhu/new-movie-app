@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const dbURI = "mongodb+srv://user:123p@cluster0.szcic.mongodb.net/movie-app?retryWrites=true&w=majority"
 //const dbURI = 'mongodb+srv://firstuser:123p@cluster0.drrxn.mongodb.net/to-do-app?retryWrites=true&w=majority'
 const User = require('./models/usrSchema')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
@@ -37,12 +37,19 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // routes
 
-app.get("/", (req, res) => {
-    res.json({ "users": ["a", "b"] })
-})
+// app.get("/", (req, res) => {
+//     res.json({ "users": ["a", "b"] })
+// })
+
+
 app.use("/get-movie-by-id", require('./routes/getMovieById'))
 app.use("/sign-up", require('./routes/signUp'))
 app.use('/pop-movies', require('./routes/getPop'))
+app.use("/add-to-watchlist", require("./routes/addToWatchlist"))
+app.use("/check-if-watched", require("./routes/checkIfWatched"))
+app.use("/get-watchlist", require("./routes/getWatchlist"))
+
+
 app.post('/log-in', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err) throw err;

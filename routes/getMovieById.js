@@ -8,13 +8,14 @@ router.post('/', function(req, res) {
 });
 
 router.get('/',auth,async(req,res) => {
+    console.log("call was made")
     const id = req.headers.id
     const key = 'fbffa47f0e90d6fd133b0d6205b10e22'
     const apiCall = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`
     axios.get(apiCall)
     .then((response) => {
         const toReturn = response.data
-
+        //console.log(toReturn)
         res.json({movie:toReturn})
     })
 });
