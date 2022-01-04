@@ -12,9 +12,11 @@ const Landing = () => {
     const postRequest = () => {
         axios.post('/log-in', { email, password })
             .then((data) => {
-                console.log(data.data);
-                if (data.data === '/home') {
-                    history(data.data)
+                if (data.data.redirect === 'success') {
+                    console.log(data.data)
+                    sessionStorage.setItem('token', data.data.accessToken)
+                    
+                    history('/home')
                 }
                 else {
                     alert(data.data.message)

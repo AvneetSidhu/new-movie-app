@@ -2,7 +2,6 @@ const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/usrSchema')
 const bcrypt = require('bcrypt')
 
-
 module.exports = (passport) => {
     passport.use(
         new LocalStrategy(
@@ -28,7 +27,8 @@ module.exports = (passport) => {
                     done(err);
                 }
             }
-        )
+        ),
+
     );
     
     passport.serializeUser((user,cb) => {

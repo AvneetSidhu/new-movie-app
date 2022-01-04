@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -8,6 +9,7 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
+const jwt = require('jsonwebtoken')
 
 port = 5000;
 
@@ -24,15 +26,7 @@ app.use(passport.session())
 require('./passport-config')(passport);
 
 
-
-
-
-
-
-
-
 //connect to db
-
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
@@ -41,17 +35,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     })
     .catch((err) => console.log(err));
 
-
-
-
 // routes
 
 app.get("/", (req, res) => {
     res.json({ "users": ["a", "b"] })
 })
-
+app.use("/get-movie-by-id", require('./routes/getMovieById'))
 app.use("/sign-up", require('./routes/signUp'))
-
+app.use('/pop-movies', require('./routes/getPop'))
 app.post('/log-in', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err) throw err;
@@ -59,9 +50,15 @@ app.post('/log-in', (req, res, next) => {
         else {
             req.logIn(user, err => {
                 if (err) throw err;
-                res.send("/home");
-                console.log(req.user)
+                
+               // console.log(req.user)
+                const user = req.user.email
+                const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+                //console.log(accessToken)
+                res.json({accessToken: accessToken ,redirect: "success", user: req.user})
             });
         }
     })(req, res, next);
 })
+
+
