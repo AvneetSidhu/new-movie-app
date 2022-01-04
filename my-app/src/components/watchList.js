@@ -14,11 +14,11 @@ const Watchlist = () => {
         }).catch(err => console.log(err))
     },[])
 
-
+    //console.log(movies)
 
     return(
         <div>
-            {movies.map((movie) => <Movie key={movie.original_title} movieInfo={movie} />)}
+            {movies.map((movie) => <Movie key={movie.info.original_title} movieInfo={movie.info} />)}
         </div>
     )
 }

@@ -6,15 +6,10 @@ const auth = require('../middleware/auth')
 const Movie = require('../models/movieSchema')
 
 router.post('/',auth, async function(req, res) {
-
-    const movie = new Movie ({
-        email: req.user,
-        info: req.body.movie,
-        date: Date.now().toString()
-    })
-    
-    await movie.save()
-    console.log("movie saved");
+    const user = req.user
+    //console.log(req.body)
+    //console.log(user)
+    await Movie.deleteOne({info:req.body.movie, email: user})
     res.status(200).json({msg:"movie has been saved"})
 });
 

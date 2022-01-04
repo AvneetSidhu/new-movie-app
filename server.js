@@ -48,6 +48,7 @@ app.use('/pop-movies', require('./routes/getPop'))
 app.use("/add-to-watchlist", require("./routes/addToWatchlist"))
 app.use("/check-if-watched", require("./routes/checkIfWatched"))
 app.use("/get-watchlist", require("./routes/getWatchlist"))
+app.use("/remove-from-watchlist", require("./routes/removeFromWatchlist"))
 
 
 app.post('/log-in', (req, res, next) => {

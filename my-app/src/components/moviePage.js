@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import '../styles/moviePage.css'
+import Watchlist from "./watchList";
 
 const MoviePage = (props) => {
     const auth = sessionStorage.getItem('token')
@@ -12,25 +13,50 @@ const MoviePage = (props) => {
     const [title, setTitle] = useState('')
     const [posterFile, setPoster] = useState('')
     const [movie, setMovie] = useState('');
+    const [watched, setWatched] = useState(false);
     let { movieID } = useParams();
 
     useEffect(()=>{
-        axios.get("/get-movie-by-id",{headers:{token: auth, id:movieID}})
+         axios.get("/get-movie-by-id",{headers:{token: auth, id:movieID}})
         .then(data => {
             setPosterPath(`https://image.tmdb.org/t/p/w1280/${data.data.movie.poster_path}`)
             setMovie(data.data.movie)
             setRating(data.data.movie.rating)
             setOverview(data.data.movie.overview)
             setTitle(data.data.movie.title)
+            axios.get('/get-watchlist', {headers:{token: auth}})
+            .then((res) => {
+                //console.log(res.data.movies)
+                const target = data.data.movie
+                const list = res.data.movies
+                list.forEach(item => {
+                    if (item.info.id == target.id){
+                        setWatched(true)
+                    }
+                })
+            })
         })
-    },[auth, movieID])
+
+    },[auth, movieID,watched])
+
+    console.log(movieID)
+
 
     function addToWatched(){
-        console.log(movie.id)
-        console.log(auth)
-        axios.post("/add-to-watchlist",{id: movie.id},{headers: {token: auth }})
+        axios.post("/add-to-watchlist",{movie: movie},{headers: {token: auth }})
         .then( data => {
             console.log(data)
+            setWatched(true)
+            //window.location.reload(false)
+        })
+    }
+
+    function removeFromWatched (){
+        axios.post("/remove-from-watchlist",{movie: movie},{headers: {token: auth }})
+        .then( data => {
+            console.log(data)
+            setWatched(false)
+            //window.location.reload(false)
         })
     }
 
@@ -41,8 +67,9 @@ const MoviePage = (props) => {
             this is a movie page for {movieID}
             <img src={poster_path} alt="couldnt load" />
             <p>{overview}</p>
-            <button>Add to Watchlist</button>
-            <button onClick={addToWatched}>Add to Watched</button>
+            
+            {!watched && <button onClick={addToWatched}>Add to Watchlist</button>}
+            {watched &&<button onClick={removeFromWatched}>Remove from Watchlist</button>}
         </div>
     )
 }

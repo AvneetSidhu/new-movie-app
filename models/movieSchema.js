@@ -6,8 +6,8 @@ const movieSchema = new Schema({
         type: String,
         required: true
     },
-    movieID: {
-        type: String, 
+    info: {
+        type: Object, 
         required: true
     },
     date:{

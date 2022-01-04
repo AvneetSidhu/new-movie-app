@@ -12,14 +12,14 @@ const Homepage = () => {
     const auth = sessionStorage.getItem('token')
     let history = useNavigate()
     useEffect(() => {
-        console.log(auth);
+        //console.log(auth);
         if (!auth) {
             history('/')
         }
         //api key api_key=fbffa47f0e90d6fd133b0d6205b10e22
         axios.get('/pop-movies', {headers:{token: auth}})
         .then((data) => {
-            console.log(data)
+            //console.log(data)
             setMovies(data.data.movies);
         }).catch(err => console.log(err))
 
