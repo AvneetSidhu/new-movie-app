@@ -3,4 +3,6 @@
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-wrap: wrap;
+    position:absolute;
+    left: 100px;
 }

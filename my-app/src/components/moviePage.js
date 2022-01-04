@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import '../styles/moviePage.css'
 import Watchlist from "./watchList";
+import { useNavigate } from "react-router-dom";
 
 const MoviePage = (props) => {
+    const history = useNavigate();
     const auth = sessionStorage.getItem('token')
     const [poster_path, setPosterPath] = useState('')
     const [rating, setRating] = useState('')
@@ -17,8 +19,12 @@ const MoviePage = (props) => {
     let { movieID } = useParams();
 
     useEffect(()=>{
+        if (!auth){
+            history('/')
+        }
          axios.get("/get-movie-by-id",{headers:{token: auth, id:movieID}})
         .then(data => {
+            
             setPosterPath(`https://image.tmdb.org/t/p/w1280/${data.data.movie.poster_path}`)
             setMovie(data.data.movie)
             setRating(data.data.movie.rating)
@@ -35,6 +41,9 @@ const MoviePage = (props) => {
                     }
                 })
             })
+        }). catch(err => {
+            console.log(err)
+                history('/')
         })
 
     },[auth, movieID,watched])
