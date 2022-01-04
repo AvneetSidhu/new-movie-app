@@ -1,3 +1,9 @@
 img {
     width: 300px;
 }
+
+.movie-page-container{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(16,25,45,255);
+}

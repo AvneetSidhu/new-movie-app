@@ -70,13 +70,13 @@ const MoviePage = (props) => {
     }
 
     return (
-        <div>
+        <div className="movie-page-container">
             <h2>{title}</h2>
-            <h3>{rating}</h3>
-            this is a movie page for {movieID}
+           
+            
             <img src={poster_path} alt="couldnt load" />
             <p>{overview}</p>
-            
+            <h3>{rating}</h3>
             {!watched && <button onClick={addToWatched}>Add to Watchlist</button>}
             {watched &&<button onClick={removeFromWatched}>Remove from Watchlist</button>}
         </div>
