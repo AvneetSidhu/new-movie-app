@@ -2,7 +2,7 @@ const { default: axios } = require('axios');
 var express = require('express');
 var router = express.Router();
 const User = require('../models/usrSchema')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 router.get('/', function(req, res) {
     res.send('get handler for signup route');

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../styles/homepage.css'
+import '../styles/nav.css'
 import Movie from "./movie";
 
 const Homepage = () => {
@@ -27,7 +28,7 @@ const Homepage = () => {
     //get movies 
     return(
         <div className="movie-container">
-           {movies.map((movie) => <Movie key = {movie.original_title} movieInfo = {movie}/>)}
+            {movies.map((movie) => <Movie key={movie.original_title} movieInfo={movie} />)}
         </div>
     )
 }

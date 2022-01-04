@@ -5,13 +5,13 @@ const mongoose = require('mongoose')
 const dbURI = "mongodb+srv://user:123p@cluster0.szcic.mongodb.net/movie-app?retryWrites=true&w=majority"
 //const dbURI = 'mongodb+srv://firstuser:123p@cluster0.drrxn.mongodb.net/to-do-app?retryWrites=true&w=majority'
 const User = require('./models/usrSchema')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const jwt = require('jsonwebtoken')
 
-port = 5000;
+port = 5001;
 
 // middleware 
 app.use(express.json())

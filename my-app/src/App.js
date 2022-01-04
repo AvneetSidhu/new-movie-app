@@ -4,6 +4,7 @@ import Landing from './components/landingPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Homepage from './components/homePage';
 import MoviePage from './components/moviePage';
+import Nav from './components/nav';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   
   return (
     <div className="App">
+      <Nav />
       <Router>
         <Routes>
             <Route name="moviePage" path="/movie/:movieID" key = {new Date().getTime()} exact element={<MoviePage/>} /> 
