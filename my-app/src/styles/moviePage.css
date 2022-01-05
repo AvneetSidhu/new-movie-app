@@ -1,5 +1,5 @@
 img {
-    width: 300px;
+    width: 400px;
 }
 
 button {
@@ -36,7 +36,7 @@ button {
 .movie-details-container {
     display: flex;
     flex-flow: row;
-    max-height: 450px;
+    max-height: 600px;
     flex-grow: 1;
 
 }
@@ -46,7 +46,7 @@ button {
 }
 
 .square {
-  height: 450px;
+  height: 600px;
   flex-grow: 1;
   background-color: rgba(60, 60, 60, 0.82);
 }
