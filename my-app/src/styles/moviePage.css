@@ -1,5 +1,8 @@
-img {
-    width: 400px;
+.poster {
+    width: 250px;
+    padding-top: 4.35ch;
+    background: rgba(0, 0, 0, 0.82);
+    padding-bottom: 4.35ch;
 }
 
 button {
@@ -20,33 +23,50 @@ button {
     align-items:flex-end;
     flex-flow: row wrap;
     width: 100%;
+ 
+    
 
 } 
+
+
+
 
 .text-container{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: rgba(60, 60, 60, 0.82);
+    background: rgba(0, 0, 0, 0.82);
     display: flex;
     flex-flow: column wrap;
-    
-    
 } 
 
 .movie-details-container {
     display: flex;
     flex-flow: row;
-    max-height: 600px;
+    /* max-height: 500px; */
     flex-grow: 1;
+  
 
 }
 
 .empty {
-    color: transparent;
+    width: 4ch;
 }
 
 .square {
-  height: 600px;
+  /* height: 450px; */
   flex-grow: 1;
-  background-color: rgba(60, 60, 60, 0.82);
+
+  background-color: rgba(0, 0, 0, 0.82);
 }
+
+
+
+.poster-container{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#description{
+    padding-top: 4.35ch;
+}
+

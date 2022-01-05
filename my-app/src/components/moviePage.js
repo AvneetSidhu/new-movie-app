@@ -6,6 +6,7 @@ import '../styles/moviePage.css'
 //import Watchlist from "./watchList";
 import { useNavigate } from "react-router-dom";
 
+
 const MoviePage = (props) => {
     const history = useNavigate();
     const auth = sessionStorage.getItem('token')
@@ -17,6 +18,7 @@ const MoviePage = (props) => {
     //const [posterFile, setPoster] = useState('')
     const [movie, setMovie] = useState('');
     const [watched, setWatched] = useState(false);
+    const [releaseYear, setReleaseYear] = useState('')
     let { movieID } = useParams();
 
     useEffect(() => {
@@ -32,6 +34,7 @@ const MoviePage = (props) => {
                 setRating(data.data.movie.rating)
                 setOverview(data.data.movie.overview)
                 setTitle(data.data.movie.title)
+                setReleaseYear(data.data.movie.release_date.split('-')[0])
                 axios.get('/get-watchlist', { headers: { token: auth } })
                     .then((res) => {
                         //console.log(res.data.movies)
@@ -49,8 +52,8 @@ const MoviePage = (props) => {
             })
 
     }, [auth, movieID, watched, history])
-
-    console.log(movieID)
+   
+    console.log(movie)
 
 
     function addToWatched() {
@@ -72,42 +75,46 @@ const MoviePage = (props) => {
     }
 
     return (
+     
         <div className="movie-page-container" style={{
             backgroundImage: `url(${backdrop_path})`,
             backgroundPosition: 'right',
-            backgroundSize: 'original',
+            backgroundSize: 'cover',
             backgroundRepeat: 'repeat',
 
         }}>
             <div className="movie-details-container">
 
                 <div className="text-container">
-                    <div className="empty">aaaa</div>
+                    <div className="empty"></div>
                 </div>
 
-                <div>
-                    <img src={poster_path} alt="couldnt load" />
+                <div className="poster-container">
+                    
+                        <img className="poster" src={poster_path} alt="couldnt load" />
+                    
                 </div>
 
                 <div className="text-container">
-                    <div className="empty">aaaa</div>
+                    <div className="empty"></div>
                 </div>
 
-                <div className="text-container">
-                    <div className="empty">aaaa</div>
-                    <h2>{title}</h2>
-                    <div className="empty">aaaa</div>
+                <div className="text-container" id="description">
+                    
+                    <h2>{title + " (" + releaseYear + ")"}</h2>
+                    <div className="empty"></div>
+                    <br/>
                     <p className="description">{overview}</p>
-                    <div className="empty">aaaa</div>
-                    <div className="empty">aaaa</div>
+                    <div className="empty"></div>
+                    <div className="empty"></div>
                     <h3>{rating}</h3>
-
+                    <br/><br/>
                     {!watched && <button onClick={addToWatched}>Add to Watchlist</button>}
                     {watched && <button onClick={removeFromWatched}>Remove from Watchlist</button>}
                 </div>
 
                 <div className="text-container">
-                    <div className="empty">aaaa</div>
+                    <div className="empty"></div>
                 </div>
 
                 <div class="square"></div>
