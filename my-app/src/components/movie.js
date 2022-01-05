@@ -20,12 +20,12 @@ const Movie = (props) => {
                 <h3>{title}</h3>
                 <span>{rating}</span>
             </div>
-            {/* <Link to={{ pathname: `/movie/${id}` }}> */}
+            <Link to={{ pathname: `/movie/${id}` }}>
             <div  className="movie-over">
                 <h2>Overview:</h2>
                 <p>{overview}</p>
             </div>
-            {/* </Link> */}
+            </Link>
         </div>
       
     )
