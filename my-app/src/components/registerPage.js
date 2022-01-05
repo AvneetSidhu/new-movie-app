@@ -2,8 +2,11 @@ import axios from "axios";
 import React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import '../styles/landingpage.css'
+
 const Register = () => {
-    
+
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
@@ -11,7 +14,7 @@ const Register = () => {
 
     const postRequest = () => {
         let password = password1
-        axios.post('/sign-up', {email, password})
+        axios.post('/sign-up', { email, password })
             .then((data) => {
                 console.log(data);
                 history('/');
@@ -26,7 +29,7 @@ const Register = () => {
     const submit = (e) => {
         e.preventDefault()
         console.log('submitted')
-        if  (password1 !== password2) {
+        if (password1 !== password2) {
             alert("passwords do not match")
             return
         }
@@ -34,12 +37,22 @@ const Register = () => {
     }
     return (
         <div>
+        <div className="padding"></div>
+        <div className="form">
+            <h3>Register</h3>
             <form>
                 <input onChange={(e) => setEmail(e.target.value)} type='text' placeholder="email"></input>
+                <br />
                 <input onChange={(e) => setPassword1(e.target.value)} type='password' id="password1" placeholder="enter a password"></input>
+                <br />
                 <input onChange={(e) => setPassword2(e.target.value)} type='password' id="password2" placeholder="enter password again"></input>
+                <br />
                 <input type="submit" onClick={submit}></input>
             </form>
+            <br />
+            <br />
+            <Link to="/"><button>Log In</button></Link>
+        </div>
         </div>
     )
 }

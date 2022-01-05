@@ -17,18 +17,23 @@ const Homepage = () => {
             history('/')
         }
         //api key api_key=fbffa47f0e90d6fd133b0d6205b10e22
-        axios.get('/pop-movies', {headers:{token: auth}})
-        .then((data) => {
-            //console.log(data)
-            setMovies(data.data.movies);
-        }).catch(err => console.log(err))
+        axios.get('/pop-movies', { headers: { token: auth } })
+            .then((data) => {
+                //console.log(data)
+                setMovies(data.data.movies);
+            }).catch(err => console.log(err))
 
-    },[auth, history])
+    }, [auth, history])
 
     //get movies 
-    return(
-        <div className="movie-container">
-            {movies.map((movie) => <Movie key={movie.original_title} movieInfo={movie} />)}
+    return (
+        <div>
+            <br />
+            <h1>Popular Movies</h1>
+            <br />
+            <div className="movie-container">
+                {movies.map((movie) => <Movie key={movie.original_title} movieInfo={movie} />)}
+            </div>
         </div>
     )
 }

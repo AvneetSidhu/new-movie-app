@@ -2,8 +2,51 @@ img {
     width: 300px;
 }
 
-.movie-page-container{
+button {
+    max-width: 90px;
+}
+
+/* .movie-page-container{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(16,25,45,255);
+} */
+
+.movie-page-container{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    display: flex;
+    align-items:flex-end;
+    flex-flow: row wrap;
+    width: 100%;
+
+} 
+
+.text-container{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(60, 60, 60, 0.82);
+    display: flex;
+    flex-flow: column wrap;
+    
+    
+} 
+
+.movie-details-container {
+    display: flex;
+    flex-flow: row;
+    max-height: 450px;
+    flex-grow: 1;
+
+}
+
+.empty {
+    color: transparent;
+}
+
+.square {
+  height: 450px;
+  flex-grow: 1;
+  background-color: rgba(60, 60, 60, 0.82);
 }

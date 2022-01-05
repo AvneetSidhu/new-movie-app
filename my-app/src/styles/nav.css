@@ -4,8 +4,8 @@ nav {
     align-items: center;
     min-height: 10vh;
     background: rgba(16,25,45,255);
-
-    color: rgba(77,102,224,255);
+    /* color: rgba(77,102,224,255); */
+    color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

@@ -17,9 +17,9 @@ function Nav() {
                             Watchlist
                         </li>
                     </Link>
-                    <Link to = "/">
+                    <Link to = "/"> 
                         <li>
-                            Log In 
+                            Log Out 
                         </li>
                     </Link>
                 </ul>

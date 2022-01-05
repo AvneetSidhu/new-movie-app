@@ -1,4 +1,14 @@
 .watchlist-container{
-    position: absolute;
-    left: 100px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    position:absolute;
+    padding-left: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding-top: 10px;
 }

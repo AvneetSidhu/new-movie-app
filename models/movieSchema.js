@@ -7,11 +7,11 @@ const movieSchema = new Schema({
         required: true
     },
     info: {
-        type: Object, 
+        type: Object,
         required: true
     },
-    date:{
-        type: String, 
+    date: {
+        type: String,
         required: true
     }
 });

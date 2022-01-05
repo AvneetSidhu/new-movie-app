@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/usrSchema')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 module.exports = (passport) => {
     passport.use(
@@ -30,12 +30,12 @@ module.exports = (passport) => {
         ),
 
     );
-    
-    passport.serializeUser((user,cb) => {
+
+    passport.serializeUser((user, cb) => {
         cb(null, user.id);
     })
-    passport.deserializeUser((id,cb) => {
-        User.findOne({_id:id}, (err, user) => {
+    passport.deserializeUser((id, cb) => {
+        User.findOne({ _id: id }, (err, user) => {
             cb(err, user);
         })
     })

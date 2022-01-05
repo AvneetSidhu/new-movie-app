@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const dbURI = "mongodb+srv://user:123p@cluster0.szcic.mongodb.net/movie-app?retryWrites=true&w=majority"
 //const dbURI = 'mongodb+srv://firstuser:123p@cluster0.drrxn.mongodb.net/to-do-app?retryWrites=true&w=majority'
 const User = require('./models/usrSchema')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
@@ -58,15 +58,13 @@ app.post('/log-in', (req, res, next) => {
         else {
             req.logIn(user, err => {
                 if (err) throw err;
-                
-               // console.log(req.user)
+
+                // console.log(req.user)
                 const user = req.user.email
                 const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
                 //console.log(accessToken)
-                res.json({accessToken: accessToken ,redirect: "success", user: req.user})
+                res.json({ accessToken: accessToken, redirect: "success", user: req.user })
             });
         }
     })(req, res, next);
 })
-
-

@@ -16,6 +16,7 @@
     max-width: 100%;
 }
 
+
 .movie-info {
     display: flex;
     align-items: center;
@@ -33,6 +34,7 @@
 .movie-over {
     position: absolute;
     background-color: white;
+    color: #11192E;
     border-top-right-radius: 3px;
     border-top-left-radius:  3px;
     box-shadow: 0px -3px 5px rgba(0,0,0,0.1);

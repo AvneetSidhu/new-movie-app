@@ -4,5 +4,13 @@
     display: flex;
     flex-wrap: wrap;
     position:absolute;
-    left: 100px;
+    left: 50px;
 }
+
+h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+
