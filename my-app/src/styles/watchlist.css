@@ -1,9 +1,10 @@
 .watchlist-container{
-    
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     position:absolute;
-    padding-left: 50px;
+    /* padding-left: 50px; */
+    justify-content: center;
 }
 
 h1 {

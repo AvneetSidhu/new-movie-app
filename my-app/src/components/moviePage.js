@@ -48,7 +48,7 @@ const MoviePage = (props) => {
             setPosterPath(`https://image.tmdb.org/t/p/w1280/${resMovie.data.movie.poster_path}`)
             setBackdropPath(`https://image.tmdb.org/t/p/w1280/${resMovie.data.movie.backdrop_path}`)
             setMovie(resMovie.data.movie)
-            setRating(resMovie.data.movie.vote_average)
+            setRating(resMovie.data.movie.vote_average.toFixed(1))
             setOverview(resMovie.data.movie.overview)
             setTitle(resMovie.data.movie.title)
             setReleaseYear(resMovie.data.movie.release_date.split('-')[0])
@@ -68,9 +68,19 @@ const MoviePage = (props) => {
             else {
                 setWatched(false)
             }
-            
 
-            setSimilarMovies(resSimilar.data.movies.splice(0,4))
+            let index = 4;
+            let similar = resSimilar.data.movies.splice(0, 5)
+            similar.forEach(item => {
+                if (item.id === target.id) {
+                    index = similar.indexOf(item)
+                }
+
+            })
+
+            similar.splice(index, 1)
+            setSimilarMovies(similar)
+
             setLoading(false)
           })).catch (err => {
               console.log(err)
@@ -78,7 +88,7 @@ const MoviePage = (props) => {
           })
          
          
-    }, [auth, movieID, watched, history])
+    }, [auth, movieID, watched, history, button])
    
     //console.log(movie)
   
