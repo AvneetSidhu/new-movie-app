@@ -6,7 +6,7 @@
 }
 
 button {
-    max-width: 90px;
+    max-width: 150px;
 }
 
 /* .movie-page-container{
@@ -27,9 +27,6 @@ button {
     
 
 } 
-
-
-
 
 .text-container{
     color: white;
@@ -70,3 +67,18 @@ button {
     padding-top: 4.35ch;
 }
 
+.similar-movies {
+    display: flex;
+   
+    justify-content: center;
+
+}
+
+.similar-movies-container {
+    display: flex;
+}
+
+#removeButton{
+    background-color: rgba(212,81,116,255);
+
+}

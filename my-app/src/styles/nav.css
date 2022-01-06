@@ -3,10 +3,13 @@ nav {
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    background: rgba(16,25,45,255);
+    background: #081A2E;
     /* color: rgba(77,102,224,255); */
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-width: 0.5px;
+    border-bottom: solid;
+    border-color: #122D49;
 }
 
 .nav-links {
@@ -39,3 +42,9 @@ a:hover { text-decoration: none; }
 
 
 a:active { text-decoration: none; }
+
+
+#buttons {
+    color: white;
+}
+

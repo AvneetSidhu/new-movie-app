@@ -1,7 +1,10 @@
+
+
 .movie {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 300px;
     margin: 1rem;
-    background-color: rgba(16,25,45,255);
+    background-color: #122D49;
     border-radius:  3px;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -34,7 +37,7 @@
 .movie-over {
     position: absolute;
     background-color: white;
-    color: #11192E;
+    color: #081A2E;
     border-top-right-radius: 3px;
     border-top-left-radius:  3px;
     box-shadow: 0px -3px 5px rgba(0,0,0,0.1);
@@ -51,3 +54,4 @@
 .movie:hover .movie-over {
     transform: translateY(0%);
 }
+

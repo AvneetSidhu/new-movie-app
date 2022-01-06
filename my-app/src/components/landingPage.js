@@ -5,7 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 //import '../styles/homepage.css'
 import '../styles/landingpage.css'
-
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
 const Landing = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -44,19 +45,28 @@ const Landing = () => {
         <div>
             <div className="padding"></div>
             <div className="form-container"> 
+            
                 <div className="form"> 
-                    <h3>Log In</h3>
+                    <div className="hello">
+                        A simple Movie App written to track your watchlist and help you discover new films. 
+                    </div>
+                    <div className="line">
+                      
+                    </div>
                     <form>
                         <input onChange={(e) => setEmail(e.target.value)} type="text" id="email" placeholder="email"></input>
                         <br />
+                        <br/>
                         <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="password"></input>
                         <br />
-                        <input type="submit" onClick={submit}></input>
+                        <br />
+                        <Button variant="contained" type="submit" onClick={submit}>Log In</Button>
+                        <br/>
+                        <br/>
+                        <Link to="/Register"><Button>Don't have an Account?</Button></Link>
                     </form>
-                    <br />
-                    <br />
-                    <Link to="/Register"><button>Register</button></Link>
                 </div>
+                
             </div>
         </div>
     )

@@ -23,14 +23,15 @@ const Watchlist = () => {
     }, [auth, history])
 
     //console.log(movies)
-
     return(
         <div>
+
             <br />
-            <h1>Your Watchlist</h1>
+            {movies.length > 0 && <h1>Your Watchlist</h1>}
+            {movies.length === 0 && <h1>You have no saved Movies! Try adding some. </h1>}
             <br />
             <div className="watchlist-container">
-                {movies.map((movie) => <Movie key={movie.info.original_title} movieInfo={movie.info} />)}
+                { movies.map((movie) => <Movie key={movie.info.original_title} movieInfo={movie.info} />)}
             </div>
         </div>
     )

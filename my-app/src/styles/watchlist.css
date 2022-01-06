@@ -1,5 +1,5 @@
 .watchlist-container{
-    font-family: 'Poppins', sans-serif;
+    
     display: flex;
     flex-wrap: wrap;
     position:absolute;
@@ -8,7 +8,7 @@
 
 h1 {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+  
     color: white;
     padding-top: 10px;
 }
