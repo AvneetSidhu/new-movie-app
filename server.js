@@ -8,21 +8,16 @@ const User = require('./models/usrSchema')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const flash = require('express-flash')
-const session = require('express-session')
 const jwt = require('jsonwebtoken')
 
 port = 5001;
 
 // middleware 
 app.use(express.json())
-app.use(session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true
-}))
+
 
 app.use(passport.initialize())
-app.use(passport.session())
+
 require('./passport-config')(passport);
 
 
