@@ -15,10 +15,10 @@ h1 {
 
 .movies{
 
-    padding-left: 5%;
     width: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     
 }
 
