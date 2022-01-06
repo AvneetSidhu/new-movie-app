@@ -13,7 +13,7 @@ import Box from '@mui/material/Box';
 
 const MoviePage = (props) => {
     const [button, setButton] = useState(false)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const history = useNavigate();
     const auth = sessionStorage.getItem('token')
     const [poster_path, setPosterPath] = useState('')

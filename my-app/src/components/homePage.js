@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 
 const Homepage = () => {
     const [movies, setMovies] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     //on page load, check if authenticated
     const auth = sessionStorage.getItem('token')
     let history = useNavigate()

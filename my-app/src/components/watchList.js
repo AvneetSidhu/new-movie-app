@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 
 const Watchlist = () => {
     const [movies, setMovies] = useState([])
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const auth = sessionStorage.getItem('token')
     let history = useNavigate()
 
