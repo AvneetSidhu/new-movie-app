@@ -61,7 +61,7 @@ const MoviePage = (props) => {
                 }
             })
             
-            setSimilarMovies(resSimilar.data.movies.splice(0,5))
+            setSimilarMovies(resSimilar.data.movies.splice(0,4))
             setLoading(false)
           })).catch (err => {
               console.log(err)
