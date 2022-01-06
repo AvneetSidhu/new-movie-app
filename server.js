@@ -1,4 +1,6 @@
 require('dotenv').config()
+const path = require('path');
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -15,7 +17,7 @@ port = 5001;
 // middleware 
 app.use(express.json())
 
-
+app.use(express.static(path.join(__dirname, 'my-app/build')));
 app.use(passport.initialize())
 
 require('./passport-config')(passport);
