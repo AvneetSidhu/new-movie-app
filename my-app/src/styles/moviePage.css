@@ -76,6 +76,7 @@ button {
 
 .similar-movies-container {
     display: flex;
+    max-width: 100%;
 }
 
 #removeButton{
