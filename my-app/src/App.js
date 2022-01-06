@@ -20,7 +20,7 @@ function App() {
           <Route name="moviePage" path="/movie/:movieID" key={new Date().getTime()} exact element={<MoviePage />} />
           <Route name="Landing" path="/" key="Landing" exact element={<Landing />} />
           <Route name="register" path="/register" key="register" element={<Register />} />
-          <Route name="home" path="/home" key="home" element={<Homepage />} />
+          <Route name="home" exact path="/home" key="home" element={<Homepage />} />
           <Route name="watchlist" path="/watchlist" key="watchlist" element={<Watchlist />} />
         </Routes>
       </Router>
