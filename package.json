@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server",
-    "heroku-postbuild":  "npm install && run build"
+    "build": "cd my-app && npm run build",
+    "install-client": "cd my-app && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
