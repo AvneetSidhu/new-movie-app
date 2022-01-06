@@ -63,7 +63,7 @@ const MoviePage = (props) => {
             
             setSimilarMovies(resSimilar.data.movies.splice(0,5))
             setLoading(false)
-          })). catch (err => {
+          })).catch (err => {
               console.log(err)
               history('/')
           })
@@ -77,9 +77,10 @@ const MoviePage = (props) => {
         axios.post("/add-to-watchlist", { movie: movie }, { headers: { token: auth } })
             .then(data => {
                 console.log(data)
+                setButton(true)
                 setWatched(true)
                 //window.location.reload(false)
-                setButton(true)
+
             })
     }
 
@@ -87,8 +88,9 @@ const MoviePage = (props) => {
         axios.post("/remove-from-watchlist", { movie: movie }, { headers: { token: auth } })
             .then(data => {
                 console.log(data)
-                setWatched(false)
                 setButton(true)
+                setWatched(false)
+
                 //window.location.reload(false)
             })
     }
