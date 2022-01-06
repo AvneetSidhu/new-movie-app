@@ -36,6 +36,7 @@ const Search = () => {
     }, [auth, history])
 
     const search = (e) => {
+        e.preventDefault()
         setLoading(true)
         axios.get('/get-search-results', { headers: { token: auth, query: query } })
         .then((data) => {

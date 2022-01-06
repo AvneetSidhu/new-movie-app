@@ -14,7 +14,7 @@ router.get('/', auth, async (req, res) => {
     const query = req.headers.query
     const apiCall = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`
 
-    if (req.headers.query.replaceAll(' ', '').length > 0) { 
+    if (req.headers.query.replace(/\s/gm, '').length > 0) { 
         await axios.get(apiCall)
             .then((response) => {
                 const toReturn = []
@@ -23,7 +23,7 @@ router.get('/', auth, async (req, res) => {
                 }
 
                 res.json({ movies: toReturn })
-            })
+            }).catch(err => console.log(err))
     }
     else {
         res.json({movies: []})
