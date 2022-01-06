@@ -36,6 +36,18 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 //     res.json({ "users": ["a", "b"] })
 // })
 
+app.get('/', (req, res, next) => {
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            name: 'name of your app',
+            version: '0.1.0'
+        }
+    });
+
+});
+
 
 app.use("/get-movie-by-id", require('./routes/getMovieById'))
 app.use("/sign-up", require('./routes/signUp'))
