@@ -1,4 +1,6 @@
 require('dotenv').config()
+const path = require('path');
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -15,7 +17,7 @@ port = 5001;
 // middleware 
 app.use(express.json())
 
-
+app.use(express.static(path.join(__dirname, 'my-app/build')));
 app.use(passport.initialize())
 
 require('./passport-config')(passport);
@@ -36,16 +38,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 //     res.json({ "users": ["a", "b"] })
 // })
 
-app.get('/', (req, res, next) => {
 
-    res.status(200).json({
-        status: 'success',
-        data: {
-            name: 'movie-app',
-        }
-    });
-
-});
 
 
 app.use("/get-movie-by-id", require('./routes/getMovieById'))
