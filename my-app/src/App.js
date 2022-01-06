@@ -6,6 +6,7 @@ import Homepage from './components/homePage';
 import MoviePage from './components/moviePage';
 import Nav from './components/nav';
 import Watchlist from './components/watchList';
+import Search from './components/searchPage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route name="register" path="/register" key="register" element={<Register />} />
           <Route name="home" exact path="/home" key="home" element={<Homepage />} />
           <Route name="watchlist" path="/watchlist" key="watchlist" element={<Watchlist />} />
+          <Route name="search" path="/search" key="search" element={<Search />} />
         </Routes>
       </Router>
     </div>

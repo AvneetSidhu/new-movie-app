@@ -17,6 +17,11 @@ function Nav() {
                             <Button id="buttons" variant ="text">WatchList</Button>
                         </li>
                     </Link>
+                    <Link to="/search">
+                        <li>
+                            <Button id="buttons" variant="text">Search</Button>
+                        </li>
+                    </Link>
                     <Link to = "/"> 
                         <li>
                         <Button id="buttons" variant ="text">Log Out</Button>

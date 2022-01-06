@@ -50,6 +50,7 @@ app.use("/check-if-watched", require("./routes/checkIfWatched"))
 app.use("/get-watchlist", require("./routes/getWatchlist"))
 app.use("/remove-from-watchlist", require("./routes/removeFromWatchlist"))
 app.use("/get-similar-movies", require("./routes/getSimilar"))
+app.use("/get-search-results", require("./routes/getSearchResults"))
 
 app.post('/log-in', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {

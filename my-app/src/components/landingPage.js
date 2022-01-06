@@ -48,7 +48,7 @@ const Landing = () => {
             
                 <div className="form"> 
                     <div className="hello">
-                        A simple Movie App written to track your watchlist and help you discover new films. 
+                        A Movie App made to track your watchlist and help you discover new films.                 
                     </div>
                     <div className="line">
                       
