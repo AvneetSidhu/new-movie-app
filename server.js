@@ -30,7 +30,7 @@ require('./passport-config')(passport);
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
-        app.listen(port);
+        app.listen(process.env.PORT || port);
         console.log("server started");
     })
     .catch((err) => console.log(err));
