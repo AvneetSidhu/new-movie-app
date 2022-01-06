@@ -40,7 +40,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 //     res.json({ "users": ["a", "b"] })
 // })
 
-app.use('/*', (req, res) => {
+app.use('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
