@@ -29,7 +29,6 @@ const MoviePage = (props) => {
     const [similarMovies, setSimilarMovies] = useState([])
     
     useEffect(() => {
-        
         if (!button){
             setLoading(true)
         }
@@ -55,12 +54,22 @@ const MoviePage = (props) => {
             setReleaseYear(resMovie.data.movie.release_date.split('-')[0])
             const target = resMovie.data.movie
             const list = resWatchlist.data.movies
+            let watchedFlag = false
+
             list.forEach(item => {
                 if (item.info.id === target.id) {
-                    setWatched(true)
+                    watchedFlag = true
                 }
             })
+
+            if(watchedFlag) {
+                setWatched(true)
+            }
+            else {
+                setWatched(false)
+            }
             
+
             setSimilarMovies(resSimilar.data.movies.splice(0,4))
             setLoading(false)
           })).catch (err => {
