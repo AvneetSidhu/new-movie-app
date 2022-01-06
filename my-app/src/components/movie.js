@@ -7,7 +7,7 @@ const Movie = (props) => {
     const title = movie.title
     const poster_path = movie.poster_path
     const posterFile = `https://image.tmdb.org/t/p/w1280/${poster_path}`
-    const rating = movie.vote_average;
+    const rating = (Math.round(movie.vote_average * 10) / 10).toFixed(1);
     const overview = movie.overview;
     const id = movie.id
     return (
