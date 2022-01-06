@@ -1,4 +1,4 @@
-require('dotenv').config()
+//require('dotenv').config()
 const path = require('path');
 
 const express = require('express')
@@ -40,9 +40,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 //     res.json({ "users": ["a", "b"] })
 // })
 
-app.use('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build/index.html'));
-});
 
 
 app.use("/get-movie-by-id", require('./routes/getMovieById'))
