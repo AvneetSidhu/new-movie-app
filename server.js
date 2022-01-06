@@ -19,7 +19,9 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'my-app/build')));
 app.use(passport.initialize())
-
+app.get('/*', function(req,res) {
+		res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 require('./passport-config')(passport);
 
 
