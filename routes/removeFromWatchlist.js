@@ -9,7 +9,7 @@ router.post('/',auth, async function(req, res) {
     const user = req.user
     //console.log(req.body)
     //console.log(user)
-    await Movie.deleteOne({info:req.body.movie.id, email: user})
+    await Movie.deleteOne({info.id:req.body.movie.id, email: user})
     res.status(200).json({msg:"movie has been saved"})
 });
 
