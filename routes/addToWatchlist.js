@@ -8,6 +8,7 @@ const Movie = require('../models/movieSchema')
 router.post('/',auth, async function(req, res) {
 
     const movie = new Movie ({
+        id: req.body.movie.id,
         email: req.user,
         info: req.body.movie,
         date: Date.now().toString()
